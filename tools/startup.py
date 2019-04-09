@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import sys
 
 print()
 print("checking for nltk")
@@ -32,7 +33,10 @@ print("Enron dataset should be last item on the list, along with its current siz
 print("download will complete at about 423 MB")
 import urllib
 url = "https://www.cs.cmu.edu/~./enron/enron_mail_20150507.tar.gz"
-urllib.urlretrieve(url, filename="../enron_mail_20150507.tar.gz") 
+if sys.version_info.major < 3:
+    urllib.urlretrieve(url, filename="../enron_mail_20150507.tar.gz") 
+else:
+    urllib.response.urlretrieve(url, filename="../enron_mail_20150507.tar.gz") 
 print("download complete!")
 
 
